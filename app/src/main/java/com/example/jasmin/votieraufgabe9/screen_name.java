@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -30,7 +31,11 @@ public class screen_name extends AppCompatActivity {
 
     public void click(View aView){
         tw_name = screenName.getText().toString();
-        tw_name = URLEncoder.encode(tw_name);
+        try {
+            tw_name = URLEncoder.encode(tw_name,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         System.out.println("Encoded" + tw_name);
         url = "http://webtechlecture.appspot.com/timeline?screenname=" + tw_name;
 

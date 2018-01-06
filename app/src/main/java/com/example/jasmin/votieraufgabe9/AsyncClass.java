@@ -25,6 +25,7 @@ public class AsyncClass extends AsyncTask<String, Integer, String> {
     TextView m_view;
     JSONArray json;
     JSONObject json_o;
+
     public AsyncClass(TextView view){
       m_view = view;
 
@@ -43,7 +44,6 @@ public class AsyncClass extends AsyncTask<String, Integer, String> {
             try {
                 URL url = new URL(urlString);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-
                 String line = "";
 
                 //jede readLine() fragt an, deswegen muss ich das in Variable sofort auffangen
